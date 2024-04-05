@@ -1053,6 +1053,9 @@ public final class ArtManagerLocal {
                 .getDexContainerFileDexoptStatuses();
 
             for (var s : statuses) {
+                if (!"everything".equals(s.getCompilerFilter())) {
+                    return true;
+                }
                 if (!"speed".equals(s.getCompilerFilter())) {
                     return true;
                 }
